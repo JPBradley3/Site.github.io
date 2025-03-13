@@ -1,141 +1,240 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>JP Bradley - Projects</title>
-  <link rel="stylesheet" href="style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-  <style>
-    body {
-      font-family: 'Roboto', sans-serif;
-      color: #333;
-      margin: 0;
-      padding: 0;
-      background: url('\background.jpg') no-repeat center center fixed;
-      background-size: cover;
-      filter: grayscale(80%); /* Desaturate background */
-      display: flex;
-      flex-direction: column;
-      min-height: 100vh;
-    }
-    header, footer {
-      background-color: rgba(255, 255, 255, 0.8); /* Frosted glass effect */
-      backdrop-filter: blur(10px); /* Frosted glass effect */
-      border: 1px solid #ccc;
-      padding: 10px 20px;
-      width: 100%;
-      box-sizing: border-box;
-    }
-    nav {
-      display: flex;
-      justify-content: flex-end;
-    }
-    .dropdown {
-      position: relative;
-      display: inline-block;
-    }
-    .dropdown .dropbtn {
-      background-color: #fff;
-      color: #333;
-      border: none;
-      cursor: pointer;
-      font-size: 20px;
-      font-weight: 700;
-      padding: 15px 20px;
-    }
-    .dropdown-content {
-      display: none;
-      position: absolute;
-      background-color: #fff;
-      min-width: 160px;
-      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-      z-index: 1;
-      right: 0;
-    }
-    .dropdown-content a {
-      color: #333;
-      padding: 12px 16px;
-      text-decoration: none;
-      display: block;
-    }
-    .dropdown-content a:hover {
-      background-color: #f1f1f1;
-    }
-    .dropdown:hover .dropdown-content {
-      display: block;
-    }
-    main {
-      flex: 1;
-      padding: 20px;
-      text-align: center;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      background-color: rgba(255, 255, 255, 0.8); /* Frosted glass effect */
-      backdrop-filter: blur(10px); /* Frosted glass effect */
-      border-radius: 10px;
-      margin: 20px;
-    }
-    footer {
-      text-align: center;
-      padding: 10px;
-    }
-    .repository-list {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
-    .repository {
-      background-color: rgba(255, 255, 255, 0.8); /* Frosted glass effect */
-      backdrop-filter: blur(10px); /* Frosted glass effect */
-      border: 1px solid #ccc;
-      border-radius: 5px;
-      margin: 20px;
-      padding: 20px;
-      width: calc(50% - 60px); /* Adjust the width to make the cards larger */
-      box-sizing: border-box;
-      text-align: left;
-    }
-    .repository img {
-      width: 100%;
-      height: auto;
-      border-radius: 5px;
-    }
-  </style>
-</head>
-<body>
-  <header>
-    <nav>
-      <div class="dropdown">
-        <button class="dropbtn">Menu</button>
-        <div class="dropdown-content">
-          <a href="/">Home</a>
-          <a href="/projects">Projects</a>
-        </div>
-      </div>
-    </nav>
-  </header>
-  <main>
-    <h1>Repository List</h1>
-    <div class="repository-list">
-      <div class="repository">
-        <img src="images/repo1_thumbnail.png" alt="Repository 1 Thumbnail">
-        <h2>Repository Name 1</h2>
-        <p>Description of Repository 1</p>
-        <a href="https://github.com/JPBradley3/repo1" target="_blank">View on GitHub</a>
-      </div>
-      <div class="repository">
-        <img src="images/repo2_thumbnail.png" alt="Repository 2 Thumbnail">
-        <h2>Repository Name 2</h2>
-        <p>Description of Repository 2</p>
-        <a href="https://github.com/JPBradley3/repo2" target="_blank">View on GitHub</a>
-      </div>
-      <!-- Add more repositories as needed -->
-    </div>
-  </main>
-  <footer>
-    <p>&copy; 2025 JP Bradley</p>
-  </footer>
-</body>
-</html>
+<style>
+body {
+    font-family: 'Roboto', sans-serif;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('{{ url_for('static', filename='background.jpg') }}') no-repeat center center fixed;
+    background-size: cover;
+    filter: grayscale(100%);
+    z-index: -2;
+}
+
+body::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    z-index: -1;
+}
+
+header, footer {
+    background-color: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 10px 20px;
+    width: 100%;
+    box-sizing: border-box;
+    z-index: 1;
+}
+
+header {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+nav {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding-right: 20px;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+    margin-left: auto;
+}
+
+.dropdown .dropbtn {
+    background-color: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: 700;
+    padding: 15px 20px;
+}
+
+.dropdown-content {
+    visibility: hidden;
+    opacity: 0;
+    position: absolute;
+    background-color: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 5px;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1000;
+    right: 0;
+    transition: all 0.3s ease;
+}
+
+.dropdown::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    height: 20px;
+    background: transparent;
+}
+
+.dropdown-content::before {
+    content: '';
+    position: absolute;
+    top: -20px;
+    left: 0;
+    right: 0;
+    height: 20px;
+    background: transparent;
+}
+
+.dropdown-content a {
+    color: #333;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: rgba(241, 241, 241, 0.8);
+}
+
+.dropdown:hover .dropbtn {
+    border-radius: 5px 5px 0 0;
+}
+
+.dropdown:hover .dropdown-content {
+    visibility: visible;
+    opacity: 1;
+    top: calc(100% + 20px);
+}
+
+.infographic {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.infographic-section {
+    background-color: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.infographic-section:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    background-color: rgba(255, 255, 255, 0.8);
+}
+
+.infographic-section h2 {
+    color: #2c3e50;
+    border-bottom: 2px solid #3498db;
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+}
+
+.infographic-section h3 {
+    color: #34495e;
+    margin-top: 15px;
+}
+
+.infographic-section ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.infographic-section li {
+    margin-bottom: 8px;
+    padding-left: 20px;
+    position: relative;
+}
+
+.infographic-section li:before {
+    content: "•";
+    color: #3498db;
+    position: absolute;
+    left: 0;
+}
+
+.infographic-section a {
+    color: #3498db;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.infographic-section a:hover {
+    color: #2980b9;
+}
+
+.link-button {
+    display: inline-block;
+    margin-left: 10px;
+    padding: 4px 8px;
+    background-color: #3498db;
+    color: white !important;
+    border-radius: 4px;
+    font-size: 0.9em;
+}
+
+.link-button:hover {
+    background-color: #2980b9;
+}
+
+main {
+    flex: 1;
+    padding: 20px;
+    position: relative;
+    z-index: 1;
+}
+
+footer {
+    text-align: center;
+    padding: 10px;
+}
+
+footer a {
+    color: #3498db;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+footer a:hover {
+    color: #2980b9;
+}
+</style>
