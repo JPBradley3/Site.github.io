@@ -156,17 +156,18 @@ nav {
     top: calc(100% + 20px);
 }
 
-.projects {
+.infographic {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 20px;
     padding: 20px;
     max-width: 1200px;
     margin: 0 auto;
+    position: relative;
     width: 100%;
 }
 
-.project-tile {
+.infographic-section {
     background-color: rgba(255, 255, 255, 0.7);
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
@@ -177,26 +178,65 @@ nav {
     transition: transform 0.3s ease;
 }
 
-.project-tile:hover {
+.infographic-section:hover {
     transform: translateY(-5px);
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
     background-color: rgba(255, 255, 255, 0.8);
 }
 
-.project-tile img {
-    width: 100%;
-    height: auto;
-    border-radius: 5px;
+.infographic-section h2 {
+    color: #2c3e50;
+    border-bottom: 2px solid #3498db;
+    padding-bottom: 10px;
     margin-bottom: 15px;
 }
 
-.project-tile h3 {
-    color: #2c3e50;
-    margin-top: 0;
+.infographic-section h3 {
+    color: #34495e;
+    margin-top: 15px;
 }
 
-.project-tile p {
-    color: #34495e;
+.infographic-section ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.infographic-section li {
+    margin-bottom: 8px;
+    padding-left: 20px;
+    position: relative;
+}
+
+.infographic-section li:before {
+    content: "•";
+    color: #3498db;
+    position: absolute;
+    left: 0;
+}
+
+.infographic-section a {
+    color: #3498db;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.infographic-section a:hover {
+    color: #2980b9;
+}
+
+.link-button {
+    display: inline-block;
+    margin-left: 10px;
+    padding: 4px 8px;
+    background-color: #3498db;
+    color: white !important;
+    border-radius: 4px;
+    font-size: 0.9em;
+    text-align: center;
+}
+
+.link-button:hover {
+    background-color: #2980b9;
 }
 
 main {
