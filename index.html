@@ -9,16 +9,16 @@
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 <style>
     body {
-        font-family: 'Roboto', sans-serif;
-        color: #333;
-        margin: 0;
-        padding: 0;
-        position: relative;
-        min-height: 100vh;
-        display: flex;
-        flex-direction: column;
-        justify-content: center; 
-        align-items: center;
+    font-family: 'Roboto', sans-serif;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; 
+    align-items: center;
     }
     
     body::before {
@@ -166,14 +166,14 @@
         position: relative;
         width: 100%;
     }
-        
+    
     .infographic-section {
         background-color: rgba(255, 255, 255, 0.7);
         backdrop-filter: blur(8px);
         -webkit-backdrop-filter: blur(8px);
         border: 1px solid rgba(255, 255, 255, 0.3);
         border-radius: 10px;
-        padding: 20px;
+        padding: 2vw;
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         transition: transform 0.3s ease;
     }
@@ -263,7 +263,7 @@
     footer a:hover {
         color: #2980b9;
     }
-
+    
     @media (max-width: 768px) {
         body {
             flex-direction: column;
@@ -271,7 +271,7 @@
             justify-content: flex-start;
         }
     
-        header, footer {
+        header, footer, .infographic-section {
             width: 100%;
             padding: 10px;
         }
@@ -286,10 +286,6 @@
     
         .infographic {
             grid-template-columns: 1fr;
-        }
-    
-        .infographic-section {
-            padding: 10px;
         }
     
         .dropbtn, .dropdown-content a {
