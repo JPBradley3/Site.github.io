@@ -1,39 +1,142 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Projects</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JP Bradley - Projects</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+      color: #333;
+      margin: 0;
+      padding: 0;
+      background: url('background.jpg') no-repeat center center fixed;
+      background-size: cover;
+      filter: grayscale(80%); /* Desaturate background */
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+    header, footer {
+      background-color: rgba(255, 255, 255, 0.8); /* Frosted glass effect */
+      backdrop-filter: blur(10px); /* Frosted glass effect */
+      border: 1px solid #ccc;
+      padding: 10px 20px;
+      width: 100%;
+      box-sizing: border-box;
+    }
+    nav {
+      display: flex;
+      justify-content: flex-end;
+    }
+    .dropdown {
+      position: relative;
+      display: inline-block;
+    }
+    .dropdown .dropbtn {
+      background-color: #fff;
+      color: #333;
+      border: none;
+      cursor: pointer;
+      font-size: 20px;
+      font-weight: 700;
+      padding: 15px 20px;
+    }
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #fff;
+      min-width: 160px;
+      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+      z-index: 1;
+      right: 0;
+    }
+    .dropdown-content a {
+      color: #333;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+    }
+    .dropdown-content a:hover {
+      background-color: #f1f1f1;
+    }
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+    main {
+      flex: 1;
+      padding: 20px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      background-color: rgba(255, 255, 255, 0.8); /* Frosted glass effect */
+      backdrop-filter: blur(10px); /* Frosted glass effect */
+      border-radius: 10px;
+      margin: 20px;
+    }
+    footer {
+      text-align: center;
+      padding: 10px;
+    }
+    .repository-list {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .repository {
+      background-color: rgba(255, 255, 255, 0.8); /* Frosted glass effect */
+      backdrop-filter: blur(10px); /* Frosted glass effect */
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      margin: 20px;
+      padding: 20px;
+      width: calc(50% - 60px); /* Adjust the width to make the cards larger */
+      box-sizing: border-box;
+      text-align: left;
+    }
+    .repository img {
+      width: 100%;
+      height: auto;
+      border-radius: 5px;
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <nav>
-            <div class="dropdown">
-                <button class="dropbtn">Menu</button>
-                <div class="dropdown-content">
-                    <a href="/">Home</a>
-                    <a href="/projects">Projects</a>
-                    <a href="/resume">Resume</a>
-                </div>
-            </div>
-        </nav>
-    </header>
-
-    <main>
-        <h1>My GitHub Repositories</h1>
-        <p>Here are some of my repositories hosted on GitHub. Click to explore more!</p>
-
-        <!-- Dynamically display GitHub repositories -->
-        <ul class="project-list">
-            {% for repo in repositories %}
-                <li><a href="{{ repo.html_url }}" target="_blank">{{ repo.name }}</a></li>
-            {% endfor %}
-        </ul>
-    </main>
-
-    <footer>
-        <p>&copy; 2025 JP Bradley</p>
-    </footer>
+  <header>
+    <nav>
+      <div class="dropdown">
+        <button class="dropbtn">Menu</button>
+        <div class="dropdown-content">
+          <a href="/">Home</a>
+          <a href="/projects">Projects</a>
+          <a href="/resume">Resume</a>
+        </div>
+      </div>
+    </nav>
+  </header>
+  <main>
+    <h1>Repository List</h1>
+    <div class="repository-list">
+      <div class="repository">
+        <img src="images/repo1_thumbnail.png" alt="Repository 1 Thumbnail">
+        <h2>Repository Name 1</h2>
+        <p>Description of Repository 1</p>
+        <a href="https://github.com/JPBradley3/repo1" target="_blank">View on GitHub</a>
+      </div>
+      <div class="repository">
+        <img src="images/repo2_thumbnail.png" alt="Repository 2 Thumbnail">
+        <h2>Repository Name 2</h2>
+        <p>Description of Repository 2</p>
+        <a href="https://github.com/JPBradley3/repo2" target="_blank">View on GitHub</a>
+      </div>
+      <!-- Add more repositories as needed -->
+    </div>
+  </main>
+  <footer>
+    <p>&copy; 2025 JP Bradley</p>
+  </footer>
 </body>
 </html>
