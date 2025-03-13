@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>JP Bradley - Projects</title>
-  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <link rel="stylesheet" href="style.css">
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
   <style>
     body {
@@ -85,7 +85,7 @@
       border-radius: 5px;
       margin: 10px;
       padding: 15px;
-      width: calc(33.333% - 40px); /* Adjust the width as needed */
+      width: calc(33.333% - 40px);
       box-sizing: border-box;
       text-align: left;
     }
@@ -107,13 +107,17 @@
   <main>
     <h1>Repository List</h1>
     <div class="repository-list">
-      {% for repo in repositories %}
-        <div class="repository">
-          <h2>{{ repo.name }}</h2>
-          <p>{{ repo.description }}</p>
-          <a href="{{ repo.html_url }}" target="_blank">View on GitHub</a>
-        </div>
-      {% endfor %}
+      <div class="repository">
+        <h2>Repository Name 1</h2>
+        <p>Description of Repository 1</p>
+        <a href="https://github.com/JPBradley3/repo1" target="_blank">View on GitHub</a>
+      </div>
+      <div class="repository">
+        <h2>Repository Name 2</h2>
+        <p>Description of Repository 2</p>
+        <a href="https://github.com/JPBradley3/repo2" target="_blank">View on GitHub</a>
+      </div>
+      <!-- Add more repositories as needed -->
     </div>
   </main>
   <footer>
