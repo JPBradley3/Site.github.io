@@ -87,6 +87,12 @@ nav {
     margin-left: auto; /* Add this line */
 }
 
+.dropdown:hover .dropdown-content {
+    visibility: visible;
+    opacity: 1;
+    top: calc(100% + 20px);
+}
+    
 .dropdown {
     position: relative;
     display: inline-block;
@@ -154,12 +160,6 @@ nav {
 
 .dropdown:hover .dropbtn {
     border-radius: 5px 5px 0 0;
-}
-
-.dropdown:hover .dropdown-content {
-    visibility: visible;
-    opacity: 1;
-    top: calc(100% + 20px);
 }
 
 .infographic {
