@@ -1,39 +1,100 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Projects</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JP Bradley - Home</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+      color: #333;
+      margin: 0;
+      padding: 0;
+      background-color: #f9f9f9;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+    header, footer {
+      background-color: #fff;
+      border: 1px solid #ccc;
+      padding: 10px 20px;
+      width: 100%;
+      box-sizing: border-box;
+    }
+    nav {
+      display: flex;
+      justify-content: flex-end;
+    }
+    .dropdown {
+      position: relative;
+      display: inline-block;
+    }
+    .dropdown .dropbtn {
+      background-color: #fff;
+      color: #333;
+      border: none;
+      cursor: pointer;
+      font-size: 20px;
+      font-weight: 700;
+      padding: 15px 20px;
+    }
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #fff;
+      min-width: 160px;
+      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+      z-index: 1;
+      right: 0;
+    }
+    .dropdown-content a {
+      color: #333;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+    }
+    .dropdown-content a:hover {
+      background-color: #f1f1f1;
+    }
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+    main {
+      flex: 1;
+      padding: 20px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    footer {
+      text-align: center;
+      padding: 10px;
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <nav>
-            <div class="dropdown">
-                <button class="dropbtn">Menu</button>
-                <div class="dropdown-content">
-                    <a href="/">Home</a>
-                    <a href="/projects">Projects</a>
-                    <a href="/resume">Resume</a>
-                </div>
-            </div>
-        </nav>
-    </header>
-
-    <main>
-        <h1>My GitHub Repositories</h1>
-        <p>Here are some of my repositories hosted on GitHub. Click to explore more!</p>
-
-        <!-- Dynamically display GitHub repositories -->
-        <ul class="project-list">
-            {% for repo in repositories %}
-                <li><a href="{{ repo.html_url }}" target="_blank">{{ repo.name }}</a></li>
-            {% endfor %}
-        </ul>
-    </main>
-
-    <footer>
-        <p>&copy; 2025 JP Bradley</p>
-    </footer>
+  <header>
+    <nav>
+      <div class="dropdown">
+        <button class="dropbtn">Menu</button>
+        <div class="dropdown-content">
+          <a href="/">Home</a>
+          <a href="/projects">Projects</a>
+          <a href="/resume">Resume</a>
+        </div>
+      </div>
+    </nav>
+  </header>
+  <main>
+    <h1>Welcome to JP Bradley's Web App</h1>
+    <p>Explore my projects, view my resume, and learn more about my professional experience.</p>
+  </main>
+  <footer>
+    <p>&copy; 2025 JP Bradley</p>
+  </footer>
 </body>
 </html>
