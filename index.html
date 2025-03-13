@@ -17,6 +17,8 @@ body {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+    justify-content: center; /* Center content vertically */
+    align-items: center; /* Center content horizontally */
 }
 
 body::before {
@@ -45,7 +47,7 @@ body::after {
     z-index: -1;
 }
 
-header {
+header, footer {
     background-color: rgba(255, 255, 255, 0.7);
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
@@ -54,34 +56,38 @@ header {
     width: 100%;
     box-sizing: border-box;
     z-index: 1;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
 }
 
-.name {
-    font-family: Arial, sans-serif;
-    font-weight: 300;
-    font-size: 20px;
-    padding: 15px 20px;
-    color: #333;
+header {
+    position: sticky;
+    top: 0;
+    z-index: 10;
     display: flex;
+    justify-content: space-between;
     align-items: center;
+}
+
+header .name {
+    font-family: 'Arial Narrow', Arial, sans-serif;
+    font-size: 2rem;
+    font-weight: 300; /* Light font weight */
+    margin-right: 20px;
 }
 
 nav {
     display: flex;
-    align-items: center;
     justify-content: flex-end;
-    margin-left: auto;
+    align-items: center;
+    padding-right: 20px;
 }
 
 .dropdown {
     position: relative;
     display: inline-block;
+    margin-left: auto;
 }
 
-.dropbtn {
+.dropdown .dropbtn {
     background-color: rgba(255, 255, 255, 0.8);
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
@@ -91,9 +97,6 @@ nav {
     font-size: 20px;
     font-weight: 700;
     padding: 15px 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
 }
 
 .dropdown-content {
@@ -112,41 +115,58 @@ nav {
     transition: all 0.3s ease;
 }
 
+.dropdown::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    height: 20px;
+    background: transparent;
+}
+
+.dropdown-content::before {
+    content: '';
+    position: absolute;
+    top: -20px;
+    left: 0;
+    right: 0;
+    height: 20px;
+    background: transparent;
+}
+
 .dropdown-content a {
-    display: block;
     color: #333;
     padding: 12px 16px;
     text-decoration: none;
-    background-color: rgba(255, 255, 255, 0.8);
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    border-radius: 5px;
-    margin: 5px 0;
-    text-align: center;
-    transition: background-color 0.3s ease;
+    display: block;
 }
 
 .dropdown-content a:hover {
     background-color: rgba(241, 241, 241, 0.8);
 }
 
-.dropdown:hover .dropdown-content,
-.dropdown-content:hover {
-    visibility: visible;
-    opacity: 1;
-    top: 100%;
+.dropdown:hover .dropbtn {
+    border-radius: 5px 5px 0 0;
 }
 
-.infographic {
+.dropdown:hover .dropdown-content {
+    visibility: visible;
+    opacity: 1;
+    top: calc(100% + 20px);
+}
+
+.projects {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 20px;
     padding: 20px;
     max-width: 1200px;
     margin: 0 auto;
-    position: relative;
+    width: 100%;
 }
 
-.infographic-section {
+.project-tile {
     background-color: rgba(255, 255, 255, 0.7);
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
@@ -157,77 +177,41 @@ nav {
     transition: transform 0.3s ease;
 }
 
-.infographic-section:hover {
+.project-tile:hover {
     transform: translateY(-5px);
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
     background-color: rgba(255, 255, 255, 0.8);
 }
 
-.infographic-section h2 {
-    color: #2c3e50;
-    border-bottom: 2px solid #3498db;
-    padding-bottom: 10px;
+.project-tile img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
     margin-bottom: 15px;
 }
 
-.infographic-section h3 {
+.project-tile h3 {
+    color: #2c3e50;
+    margin-top: 0;
+}
+
+.project-tile p {
     color: #34495e;
-    margin-top: 15px;
-}
-
-.infographic-section ul {
-    list-style-type: none;
-    padding-left: 0;
-}
-
-.infographic-section li {
-    margin-bottom: 8px;
-    padding-left: 20px;
-    position: relative;
-}
-
-.infographic-section li:before {
-    content: "•";
-    color: #3498db;
-    position: absolute;
-    left: 0;
-}
-
-.infographic-section a {
-    color: #3498db;
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
-
-.infographic-section a:hover {
-    color: #2980b9;
-}
-
-.link-button {
-    display: inline-block;
-    margin-left: 10px;
-    padding: 4px 8px;
-    background-color: #3498db;
-    color: white !important;
-    border-radius: 4px;
-    font-size: 0.9em;
-    text-align: center; /* Add this line */
-}
-
-.link-button:hover {
-    background-color: #2980b9;
 }
 
 main {
-    flex: 1;
-    padding: 20px;
-    position: relative;
-    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+    width: 100%;
 }
 
 footer {
     text-align: center;
     padding: 10px;
+    z-index: 1;
+    width: 100%;
 }
 
 footer a {
