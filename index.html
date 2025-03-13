@@ -12,13 +12,16 @@
       color: #333;
       margin: 0;
       padding: 0;
-      background-color: #f9f9f9;
+      background: url('images/background.jpg') no-repeat center center fixed;
+      background-size: cover;
+      filter: grayscale(80%); /* Desaturate background */
       display: flex;
       flex-direction: column;
       min-height: 100vh;
     }
     header, footer {
-      background-color: #fff;
+      background-color: rgba(255, 255, 255, 0.8); /* Frosted glass effect */
+      backdrop-filter: blur(10px); /* Frosted glass effect */
       border: 1px solid #ccc;
       padding: 10px 20px;
       width: 100%;
@@ -69,6 +72,10 @@
       display: flex;
       flex-direction: column;
       justify-content: center;
+      background-color: rgba(255, 255, 255, 0.8); /* Frosted glass effect */
+      backdrop-filter: blur(10px); /* Frosted glass effect */
+      border-radius: 10px;
+      margin: 20px;
     }
     footer {
       text-align: center;
