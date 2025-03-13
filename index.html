@@ -65,8 +65,9 @@ header {
     width: 100%;
     box-sizing: border-box;
     z-index: 1;
-    display: flex; /* Add this line */
-    align-items: center; /* Vertically center the contents */
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Add this line */
 }
 
 .name {
@@ -77,14 +78,11 @@ header {
     color: #333; /* Same as the body text color for consistency */
     display: flex;
     align-items: center; /* Vertically center the text */
-    height: 100%; /* Make sure it takes the full height of the header */
 }
 
 nav {
     display: flex;
-    justify-content: flex-end;
     align-items: center;
-    padding-right: 20px;
 }
 
 .dropdown {
