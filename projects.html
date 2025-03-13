@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>JP Bradley - Repositories</title>
+  <title>JP Bradley - Projects</title>
   <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
   <style>
@@ -74,6 +74,21 @@
       text-align: center;
       padding: 10px;
     }
+    .repository-list {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .repository {
+      background-color: #fff;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      margin: 10px;
+      padding: 15px;
+      width: calc(33.333% - 40px); /* Adjust the width as needed */
+      box-sizing: border-box;
+      text-align: left;
+    }
   </style>
 </head>
 <body>
@@ -85,16 +100,19 @@
           <a href="/">Home</a>
           <a href="/projects">Projects</a>
           <a href="/resume">Resume</a>
-          <a href="/repositories">Repositories</a>
         </div>
       </div>
     </nav>
   </header>
   <main>
     <h1>Repository List</h1>
-    <div>
+    <div class="repository-list">
       {% for repo in repositories %}
-        <p>{{ repo.name }}</p>
+        <div class="repository">
+          <h2>{{ repo.name }}</h2>
+          <p>{{ repo.description }}</p>
+          <a href="{{ repo.html_url }}" target="_blank">View on GitHub</a>
+        </div>
       {% endfor %}
     </div>
   </main>
