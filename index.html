@@ -13,11 +13,20 @@
       margin: 0;
       padding: 0;
       background-color: #f9f9f9;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+    header, footer {
+      background-color: #fff;
+      border: 1px solid #ccc;
+      padding: 10px 20px;
+      width: 100%;
+      box-sizing: border-box;
     }
     nav {
-      background-color: #fff;
-      border-bottom: 1px solid #ccc;
-      padding: 10px 20px;
+      display: flex;
+      justify-content: center;
     }
     .dropdown {
       position: relative;
@@ -44,14 +53,16 @@
       display: block;
     }
     main {
+      flex: 1;
       padding: 20px;
       text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
     }
     footer {
       text-align: center;
       padding: 10px;
-      background-color: #fff;
-      border-top: 1px solid #ccc;
     }
   </style>
 </head>
