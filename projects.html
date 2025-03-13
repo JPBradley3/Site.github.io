@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>JP Bradley - Home</title>
+  <title>JP Bradley - Repositories</title>
   <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
   <style>
@@ -90,8 +90,12 @@
     </nav>
   </header>
   <main>
-    <h1>Welcome to JP Bradley's Web App</h1>
-    <p>Explore my projects, view my resume, and learn more about my professional experience.</p>
+    <h1>Repository List</h1>
+    <div>
+      {% for repo in repositories %}
+        <p>{{ repo.name }}</p>
+      {% endfor %}
+    </div>
   </main>
   <footer>
     <p>&copy; 2025 JP Bradley</p>
