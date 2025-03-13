@@ -5,18 +5,44 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>JP Bradley - Home</title>
   <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+      color: #333;
+      margin: 0;
+      padding: 0;
+      background-color: #f9f9f9;
+    }
+    nav {
+      background-color: #fff;
+      border-bottom: 1px solid #ccc;
+      padding: 10px 20px;
+    }
+    nav a {
+      margin: 0 15px;
+      text-decoration: none;
+      color: #333;
+      font-weight: 700;
+    }
+    main {
+      padding: 20px;
+      text-align: center;
+    }
+    footer {
+      text-align: center;
+      padding: 10px;
+      background-color: #fff;
+      border-top: 1px solid #ccc;
+    }
+  </style>
 </head>
 <body>
   <header>
     <nav>
-      <div class="dropdown">
-        <button class="dropbtn">Menu</button>
-        <div class="dropdown-content">
-          <a href="/">Home</a>
-          <a href="/projects">Projects</a>
-          <a href="/resume">Resume</a>
-        </div>
-      </div>
+      <a href="/">Home</a>
+      <a href="/projects">Projects</a>
+      <a href="/resume">Resume</a>
     </nav>
   </header>
   <main>
