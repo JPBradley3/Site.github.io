@@ -56,6 +56,12 @@ header, footer {
     z-index: 1;
 }
 
+header {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
 nav {
     display: flex;
     justify-content: flex-end;
@@ -63,7 +69,6 @@ nav {
     padding-right: 20px;
 }
 
-/* Replace just the dropdown-related CSS in your style section with this: */
 .dropdown {
     position: relative;
     display: inline-block;
@@ -95,25 +100,23 @@ nav {
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1000;
     right: 0;
-    /* Remove top positioning */
     transition: all 0.3s ease;
 }
 
-/* Add this to create a hover area */
 .dropdown::after {
     content: '';
     position: absolute;
     top: 100%;
     left: 0;
     right: 0;
-    height: 20px; /* Invisible area to prevent menu from closing */
+    height: 20px;
     background: transparent;
 }
 
 .dropdown-content::before {
     content: '';
     position: absolute;
-    top: -20px; /* Match the height of dropdown::after */
+    top: -20px;
     left: 0;
     right: 0;
     height: 20px;
@@ -138,9 +141,8 @@ nav {
 .dropdown:hover .dropdown-content {
     visibility: visible;
     opacity: 1;
-    top: calc(100% + 20px); /* Account for the hover area */
+    top: calc(100% + 20px);
 }
-
 
 .infographic {
     display: grid;
@@ -233,6 +235,16 @@ main {
 footer {
     text-align: center;
     padding: 10px;
+}
+
+footer a {
+    color: #3498db;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+footer a:hover {
+    color: #2980b9;
 }
 </style>
 </head>
