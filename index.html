@@ -87,19 +87,43 @@ nav {
     margin-left: auto; /* Add this line */
 }
 
-.dropdown:hover .dropdown-content {
-    visibility: visible;
-    opacity: 1;
-    top: calc(100% + 20px);
+header {
+    background-color: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 10px 20px;
+    width: 100%;
+    box-sizing: border-box;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
-    
-.dropdown {
-    position: relative;
-    display: inline-block;
+
+.name {
+    font-family: Arial, sans-serif;
+    font-weight: 300;
+    font-size: 20px;
+    padding: 15px 20px;
+    color: #333;
+    display: flex;
+    align-items: center;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
     margin-left: auto;
 }
 
-.dropdown .dropbtn {
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropbtn {
     background-color: rgba(255, 255, 255, 0.8);
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
@@ -126,6 +150,17 @@ nav {
     right: 0;
     transition: all 0.3s ease;
 }
+
+.dropdown:hover .dropdown-content {
+    visibility: visible;
+    opacity: 1;
+    top: 100%;
+}
+    
+
+
+
+
 
 .dropdown::after {
     content: '';
@@ -268,7 +303,7 @@ footer a:hover {
 </head>
 <body>
 <header>
-<div class="name">JP Bradley</div>
+    <div class="name">JP Bradley</div>
     <nav>
         <div class="dropdown">
             <button class="dropbtn">Menu</button>
