@@ -57,17 +57,27 @@ header, footer {
 }
 
 header {
-    position: sticky;
-    top: 0;
-    z-index: 10;
+    background-color: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 10px 20px;
+    width: 100%;
+    box-sizing: border-box;
+    z-index: 1;
+    display: flex; /* Add this line */
+    align-items: center; /* Vertically center the contents */
 }
 
 .name {
     font-family: Arial, sans-serif;
     font-weight: 300; /* Thin font weight */
-    font-size: 2em; /* Adjust the size as needed */
-    padding: 10px 20px;
+    font-size: 20px; /* Match the font size of the menu button */
+    padding: 15px 20px; /* Adjust padding to vertically center */
     color: #333; /* Same as the body text color for consistency */
+    display: flex;
+    align-items: center; /* Vertically center the text */
+    height: 100%; /* Make sure it takes the full height of the header */
 }
 
 nav {
