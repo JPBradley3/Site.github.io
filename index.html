@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>JP Bradley - Home</title>
   <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
@@ -34,8 +34,8 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background-color: rgba(255, 255, 255, 0.7); /* Frosted glass effect */
-      backdrop-filter: blur(10px); /* Frosted glass effect */
+      background-color: rgba(255, 255, 255, 0.7);
+      backdrop-filter: blur(10px);
       z-index: 0;
     }
     header, footer {
@@ -101,6 +101,51 @@
       position: relative;
       z-index: 1;
     }
+    .content {
+      text-align: left;
+      max-width: 800px;
+      margin: 0 auto;
+      background-color: rgba(255, 255, 255, 0.9);
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    .infographic {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+    .infographic-section {
+      flex: 1 1 300px;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+    .infographic-section h2 {
+      margin-top: 0;
+      font-size: 1.5rem;
+    }
+    .infographic-section ul {
+      list-style: none;
+      padding: 0;
+    }
+    .infographic-section ul li {
+      margin: 10px 0;
+    }
+    .link-button {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 10px 15px;
+      background-color: #0073e6;
+      color: #fff;
+      border-radius: 5px;
+      text-decoration: none;
+    }
+    .link-button:hover {
+      background-color: #005bb5;
+    }
   </style>
 </head>
 <body>
@@ -119,11 +164,64 @@
     </nav>
   </header>
   <main>
-    <h1>Welcome to JP Bradley's Web App</h1>
-    <p>Explore my projects, view my resume, and learn more about my professional experience.</p>
-  </main>
-  <footer>
-    <p>&copy; 2025 JP Bradley</p>
-  </footer>
-</body>
-</html>
+    <div class="content">
+      <div class="infographic">
+        <div class="infographic-section">
+          <h2>Contact</h2>
+          <p>Email: jamespbradley3@gmail.com</p>
+          <p>LinkedIn: <a href="https://www.linkedin.com/in/jp-bradley-534a37205" target="_blank">JP Bradley on LinkedIn</a></p>
+          <p>Portfolio: <a href="https://github.com/JPBradley3" target="_blank">JP Bradley on GitHub</a></p>
+        </div>
+        <div class="infographic-section">
+          <h2>Summary</h2>
+          <p>Tech professional who is currently upskilling their coding abilities. I have an interest in data and back end applications.</p>
+        </div>
+        <div class="infographic-section">
+          <h2>Experience</h2>
+          <h3>CrowdGen</h3>
+          <p>Quality Assurance Analyst</p>
+          <p>July 2021 - Present</p>
+          <ul>
+            <li>Carefully examining data annotations submitted by other contributors to verify accuracy and adherence to project guidelines.</li>
+            <li>Applying specific quality standards and metrics to identify errors, inconsistencies, or ambiguous annotations.</li>
+            <li>Providing detailed feedback to contributors on their work, highlighting areas for improvement and explaining why certain annotations were rejected.</li>
+            <li>Tracking contributor performance based on quality metrics and identifying areas where additional training or support may be needed.</li>
+            <li>Reporting findings and quality concerns to project managers, contributing to overall data quality improvement.</li>
+          </ul>
+        </div>
+        <div class="infographic-section">
+          <h3>Concord Technologies</h3>
+          <p>Tier III Application Support</p>
+          <p>February 2018 - December 2018</p>
+          <ul>
+            <li>Diagnosing and resolving complex technical issues that may require in-depth analysis of system architecture, custom configurations, and integration with other systems.</li>
+            <li>Identifying potential issues before they impact the customer through regular system health checks and preventative measures.</li>
+            <li>Designing and implementing tailored solutions to meet specific customer requirements, including configuration adjustments and custom scripting.</li>
+            <li>Maintaining regular communication with key decision-makers, building strong relationships, and understanding their unique needs.</li>
+            <li>Acting as the primary point of contact for critical issues, coordinating with engineering teams to resolve complex problems quickly.</li>
+            <li>Possessing in-depth knowledge of the product suite, including advanced features and functionality, to provide expert guidance.</li>
+            <li>Providing technical training to clients on new features and best practices.</li>
+          </ul>
+        </div>
+        <div class="infographic-section">
+          <h3>Consolidated Communications</h3>
+          <p>Network Technical Support</p>
+          <p>August 2016 - August 2017</p>
+          <ul>
+            <li>Diagnosing and resolving customer internet connection issues, including problems with modem setup, router configuration, network speed, and connectivity.</li>
+            <li>Assisting customers with account-related issues like billing inquiries, service upgrades, and password resets.</li>
+            <li>Understanding and applying knowledge of internet protocols (TCP/IP), network topologies, and various internet service technologies (cable, DSL, fiber optic).</li>
+            <li>Identifying complex issues that require further investigation and escalating them to senior technical support or engineering teams.</li>
+            <li>Staying updated with evolving technologies and adapting to new troubleshooting procedures.</li>
+          </ul>
+        </div>
+        <div class="infographic-section">
+          <h2>Education</h2>
+          <p>University of Mississippi</p>
+          <p>Bachelor of Science, Computer Science</p>
+          <p>(2007 - 2010)</p>
+        </div>
+        <div class="infographic-section">
+          <h2>Certifications</h2>
+          <ul>
+            <
