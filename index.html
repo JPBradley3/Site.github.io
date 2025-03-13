@@ -17,8 +17,8 @@
         min-height: 100vh;
         display: flex;
         flex-direction: column;
-        justify-content: center; /* Center content vertically */
-        align-items: center; /* Center content horizontally */
+        justify-content: center; 
+        align-items: center;
     }
     
     body::before {
@@ -52,7 +52,7 @@
         backdrop-filter: blur(8px);
         -webkit-backdrop-filter: blur(8px);
         border: 1px solid rgba(255, 255, 255, 0.3);
-        padding: 10px 20px;
+        padding: 2vw;
         width: 100%;
         box-sizing: border-box;
         z-index: 1;
@@ -70,7 +70,7 @@
     header .name {
         font-family: 'Arial Narrow', Arial, sans-serif;
         font-size: 2rem;
-        font-weight: 300; /* Light font weight */
+        font-weight: 300; 
         margin-right: 20px;
     }
     
@@ -157,87 +157,87 @@
     }
     
     .infographic {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 20px;
-    padding: 20px;
-    max-width: 1200px;
-    margin: 0 auto;
-    position: relative;
-    width: 100%;
-}
-
-.infographic-section {
-    background-color: rgba(255, 255, 255, 0.7);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    border-radius: 10px;
-    padding: 20px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
-}
-
-.infographic-section:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-    background-color: rgba(255, 255, 255, 0.8);
-}
-
-.infographic-section h2 {
-    color: #2c3e50;
-    border-bottom: 2px solid #3498db;
-    padding-bottom: 10px;
-    margin-bottom: 15px;
-}
-
-.infographic-section h3 {
-    color: #34495e;
-    margin-top: 15px;
-}
-
-.infographic-section ul {
-    list-style-type: none;
-    padding-left: 0;
-}
-
-.infographic-section li {
-    margin-bottom: 8px;
-    padding-left: 20px;
-    position: relative;
-}
-
-.infographic-section li:before {
-    content: "•";
-    color: #3498db;
-    position: absolute;
-    left: 0;
-}
-
-.infographic-section a {
-    color: #3498db;
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
-
-.infographic-section a:hover {
-    color: #2980b9;
-}
-
-.link-button {
-    display: inline-block;
-    margin-left: 10px;
-    padding: 4px 8px;
-    background-color: #3498db;
-    color: white !important;
-    border-radius: 4px;
-    font-size: 0.9em;
-    text-align: center;
-}
-
-.link-button:hover {
-    background-color: #2980b9;
-}
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 20px;
+        padding: 20px;
+        max-width: 1200px;
+        margin: 0 auto;
+        position: relative;
+        width: 100%;
+    }
+    
+    .infographic-section {
+        background-color: rgba(255, 255, 255, 0.7);
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        border-radius: 10px;
+        padding: 20px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease;
+    }
+    
+    .infographic-section:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        background-color: rgba(255, 255, 255, 0.8);
+    }
+    
+    .infographic-section h2 {
+        color: #2c3e50;
+        border-bottom: 2px solid #3498db;
+        padding-bottom: 10px;
+        margin-bottom: 15px;
+    }
+    
+    .infographic-section h3 {
+        color: #34495e;
+        margin-top: 15px;
+    }
+    
+    .infographic-section ul {
+        list-style-type: none;
+        padding-left: 0;
+    }
+    
+    .infographic-section li {
+        margin-bottom: 8px;
+        padding-left: 20px;
+        position: relative;
+    }
+    
+    .infographic-section li:before {
+        content: "•";
+        color: #3498db;
+        position: absolute;
+        left: 0;
+    }
+    
+    .infographic-section a {
+        color: #3498db;
+        text-decoration: none;
+        transition: color 0.3s ease;
+    }
+    
+    .infographic-section a:hover {
+        color: #2980b9;
+    }
+    
+    .link-button {
+        display: inline-block;
+        margin-left: 10px;
+        padding: 4px 8px;
+        background-color: #3498db;
+        color: white !important;
+        border-radius: 4px;
+        font-size: 0.9em;
+        text-align: center;
+    }
+    
+    .link-button:hover {
+        background-color: #2980b9;
+    }
     
     main {
         display: flex;
@@ -249,7 +249,7 @@
     
     footer {
         text-align: center;
-        padding: 10px;
+        padding: 2vw;
         z-index: 1;
         width: 100%;
     }
@@ -263,7 +263,41 @@
     footer a:hover {
         color: #2980b9;
     }
-    </style>
+
+    @media (max-width: 768px) {
+        body {
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: flex-start;
+        }
+    
+        header, footer {
+            width: 100%;
+            padding: 10px;
+        }
+    
+        nav {
+            padding-right: 10px;
+        }
+    
+        .dropdown-content {
+            min-width: 100px;
+        }
+    
+        .infographic {
+            grid-template-columns: 1fr;
+        }
+    
+        .infographic-section {
+            padding: 10px;
+        }
+    
+        .dropbtn, .dropdown-content a {
+            font-size: 16px;
+            padding: 10px;
+        }
+    }
+</style>
 </head>
 <body>
 <header>
