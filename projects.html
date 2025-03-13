@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
-<title>JP Bradley - Home</title>
+<title>JP Bradley - Projects</title>
 <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 <style>
@@ -17,6 +17,8 @@ body {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+    justify-content: center; /* Center content vertically */
+    align-items: center; /* Center content horizontally */
 }
 
 body::before {
@@ -60,6 +62,16 @@ header {
     position: sticky;
     top: 0;
     z-index: 10;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header .name {
+    font-family: 'Arial Narrow', Arial, sans-serif;
+    font-size: 2rem;
+    font-weight: 300; /* Light font weight */
+    margin-right: 20px;
 }
 
 nav {
@@ -144,17 +156,17 @@ nav {
     top: calc(100% + 20px);
 }
 
-.infographic {
+.projects {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 20px;
     padding: 20px;
     max-width: 1200px;
     margin: 0 auto;
-    position: relative;
+    width: 100%;
 }
 
-.infographic-section {
+.project-tile {
     background-color: rgba(255, 255, 255, 0.7);
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
@@ -165,76 +177,41 @@ nav {
     transition: transform 0.3s ease;
 }
 
-.infographic-section:hover {
+.project-tile:hover {
     transform: translateY(-5px);
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
     background-color: rgba(255, 255, 255, 0.8);
 }
 
-.infographic-section h2 {
-    color: #2c3e50;
-    border-bottom: 2px solid #3498db;
-    padding-bottom: 10px;
+.project-tile img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
     margin-bottom: 15px;
 }
 
-.infographic-section h3 {
+.project-tile h3 {
+    color: #2c3e50;
+    margin-top: 0;
+}
+
+.project-tile p {
     color: #34495e;
-    margin-top: 15px;
-}
-
-.infographic-section ul {
-    list-style-type: none;
-    padding-left: 0;
-}
-
-.infographic-section li {
-    margin-bottom: 8px;
-    padding-left: 20px;
-    position: relative;
-}
-
-.infographic-section li:before {
-    content: "•";
-    color: #3498db;
-    position: absolute;
-    left: 0;
-}
-
-.infographic-section a {
-    color: #3498db;
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
-
-.infographic-section a:hover {
-    color: #2980b9;
-}
-
-.link-button {
-    display: inline-block;
-    margin-left: 10px;
-    padding: 4px 8px;
-    background-color: #3498db;
-    color: white !important;
-    border-radius: 4px;
-    font-size: 0.9em;
-}
-
-.link-button:hover {
-    background-color: #2980b9;
 }
 
 main {
-    flex: 1;
-    padding: 20px;
-    position: relative;
-    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+    width: 100%;
 }
 
 footer {
     text-align: center;
     padding: 10px;
+    z-index: 1;
+    width: 100%;
 }
 
 footer a {
@@ -250,85 +227,38 @@ footer a:hover {
 </head>
 <body>
 <header>
+    <div class="name">JP Bradley</div>
     <nav>
         <div class="dropdown">
             <button class="dropbtn">Menu</button>
             <div class="dropdown-content">
                 <a href="/">Home</a>
                 <a href="/projects">Projects</a>
-                <a href="/resume">Resume</a>
             </div>
         </div>
     </nav>
 </header>
 <main>
-<div class="content">
-<div class="infographic">
-<div class="infographic-section">
-<h2>Contact</h2>
-<p>Email: jamespbradley3@gmail.com</p>
-<p>LinkedIn: <a href="https://www.linkedin.com/in/jp-bradley-534a37205" target="_blank">JP Bradley on LinkedIn</a></p>
-<p>Portfolio: <a href="https://github.com/JPBradley3" target="_blank">JP Bradley on GitHub</a></p>
+<div class="projects">
+<div class="project-tile">
+<img src="project1-thumbnail.jpg" alt="Project 1 Thumbnail">
+<h3>Project 1</h3>
+<p>Description of Project 1...</p>
+<a href="https://github.com/JPBradley3/project1" target="_blank">View on GitHub</a>
 </div>
-<div class="infographic-section">
-<h2>Summary</h2>
-<p>Passionate about enhancing my data skills through edX and HarvardX, I've gained practical expertise in programming, data structures, API procedures, and other relevant skills. Learning from industry leaders and Harvard faculty, I am now better equipped to employ what I've learned in my professional endeavors.</p>
+<div class="project-tile">
+<img src="project2-thumbnail.jpg" alt="Project 2 Thumbnail">
+<h3>Project 2</h3>
+<p>Description of Project 2...</p>
+<a href="https://github.com/JPBradley3/project2" target="_blank">View on GitHub</a>
 </div>
-<div class="infographic-section">
-<h2>Experience</h2>
-<h3>CrowdGen</h3>
-<p>Quality Assurance Analyst</p>
-<p>July 2021 - Present</p>
-<ul>
-<li>Examining data annotations for accuracy and adherence to guidelines (text, images, audio)</li>
-<li>Applying quality standards and metrics to identify errors</li>
-<li>Providing feedback to contributors and suggesting improvements</li>
-<li>Tracking contributor performance and identifying training needs</li>
-<li>Reporting findings to project managers</li>
-</ul>
+<div class="project-tile">
+<img src="project3-thumbnail.jpg" alt="Project 3 Thumbnail">
+<h3>Project 3</h3>
+<p>Description of Project 3...</p>
+<a href="https://github.com/JPBradley3/project3" target="_blank">View on GitHub</a>
 </div>
-<div class="infographic-section">
-<h2>Experience</h2>
-<h3>Concord Technologies</h3>
-<p>Tier III Application Support</p>
-<p>February 2018 - December 2018</p>
-<ul>
-<li>Diagnosing complex technical issues and analyzing system architecture</li>
-<li>Performing system health checks and implementing preventative measures</li>
-<li>Designing tailored solutions, configuration adjustments, and scripting</li>
-<li>Maintaining communication with key decision-makers</li>
-<li>Acting as primary contact for critical issues and coordinating with engineering teams</li>
-<li>Providing product knowledge and technical training to clients</li>
-</ul>
-</div>
-<div class="infographic-section">
-<h2>Experience</h2>
-<h3>Consolidated Communications</h3>
-<p>Network Technical Support</p>
-<p>August 2016 - August 2017</p>
-<ul>
-<li>Diagnosing internet connection issues (modem setup, router configuration, network speed)</li>
-<li>Assisting with account-related issues (billing inquiries, service upgrades, password resets)</li>
-<li>Applying knowledge of internet protocols (TCP/IP), network topologies, and service technologies (cable, DSL, fiber optic)</li>
-<li>Identifying and escalating complex issues to senior technical support</li>
-<li>Staying updated with evolving technologies</li>
-</ul>
-</div>
-<div class="infographic-section">
-<h2>Education</h2>
-<p>University of Mississippi</p>
-<p>Bachelor of Science, Computer Science</p>
-<p>(2007 - 2010)</p>
-</div>
-<div class="infographic-section">
-<h2>Certifications</h2>
-<ul>
-<li>CS50X - Introduction to Computer Science<div></div><a href="https://courses.edx.org/certificates/80b7178026e9439d8430a5cf98f8fb7c" class="link-button" target="_blank">View Certificate</a></li>
-<li>CS50P - Introduction to Python<div></div><a href="https://courses.edx.org/certificates/f7558c041d0742beafa19ef62f3e7b18" class="link-button" target="_blank">View Certificate</a></li>
-<li>CS50AI - Introduction to Artificial Intelligence with Python<div></div><a href="https://courses.edx.org/certificates/b7bfa37bb0fc4f9383e61bc034d0a78a" class="link-button" target="_blank">View Certificate</a></li>
-</ul>
-</div>
-</div>
+<!-- Add more project tiles as needed -->
 </div>
 </main>
 <footer>
