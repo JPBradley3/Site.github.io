@@ -12,23 +12,40 @@
       color: #333;
       margin: 0;
       padding: 0;
-      background: url('background.jpg') no-repeat center center fixed;
-      background-size: cover;
-      filter: grayscale(80%); /* Desaturate background */
       display: flex;
       flex-direction: column;
       min-height: 100vh;
+      position: relative;
     }
-    header {
-      background-color: rgba(255, 255, 255, 0.8); /* Frosted glass effect */
+    .background {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('static/images/background.jpg') no-repeat center center fixed;
+      background-size: cover;
+      filter: grayscale(80%);
+      z-index: -1;
+    }
+    .frosted-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(255, 255, 255, 0.7); /* Frosted glass effect */
       backdrop-filter: blur(10px); /* Frosted glass effect */
+      z-index: 0;
+    }
+    header, footer {
+      background-color: rgba(255, 255, 255, 0.8);
       border: 1px solid #ccc;
       padding: 10px 20px;
       width: 100%;
       box-sizing: border-box;
-      position: sticky;
-      top: 0;
-      z-index: 1000; /* Ensure the menu is on top */
+      position: relative;
+      z-index: 1;
     }
     nav {
       display: flex;
@@ -53,7 +70,7 @@
       background-color: #fff;
       min-width: 160px;
       box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-      z-index: 1001;
+      z-index: 2;
       right: 0;
     }
     .dropdown-content a {
@@ -75,23 +92,20 @@
       display: flex;
       flex-direction: column;
       justify-content: center;
-      background-color: rgba(255, 255, 255, 0.8); /* Frosted glass effect */
-      backdrop-filter: blur(10px); /* Frosted glass effect */
-      border-radius: 10px;
-      margin: 20px;
+      position: relative;
+      z-index: 1;
     }
     footer {
-      background-color: rgba(255, 255, 255, 0.8); /* Frosted glass effect */
-      backdrop-filter: blur(10px); /* Frosted glass effect */
-      border: 1px solid #ccc;
-      padding: 10px 20px;
-      width: 100%;
-      box-sizing: border-box;
       text-align: center;
+      padding: 10px;
+      position: relative;
+      z-index: 1;
     }
   </style>
 </head>
 <body>
+  <div class="background"></div>
+  <div class="frosted-overlay"></div>
   <header>
     <nav>
       <div class="dropdown">
