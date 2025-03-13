@@ -61,12 +61,12 @@ header {
 
 .name {
     font-family: Arial, sans-serif;
-    font-weight: 300; /* Thin font weight */
-    font-size: 20px; /* Match the font size of the menu button */
-    padding: 15px 20px; /* Adjust padding to vertically center */
-    color: #333; /* Same as the body text color for consistency */
+    font-weight: 300;
+    font-size: 20px;
+    padding: 15px 20px;
+    color: #333;
     display: flex;
-    align-items: center; /* Vertically center the text */
+    align-items: center;
 }
 
 nav {
@@ -109,7 +109,8 @@ nav {
     transition: all 0.3s ease;
 }
 
-.dropdown:hover .dropdown-content {
+.dropdown:hover .dropdown-content,
+.dropdown-content:hover {
     visibility: visible;
     opacity: 1;
     top: 100%;
