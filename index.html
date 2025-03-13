@@ -19,14 +19,15 @@
       flex-direction: column;
       min-height: 100vh;
     }
-    header, footer {
+    header {
       background-color: rgba(255, 255, 255, 0.8); /* Frosted glass effect */
       backdrop-filter: blur(10px); /* Frosted glass effect */
       border: 1px solid #ccc;
       padding: 10px 20px;
       width: 100%;
       box-sizing: border-box;
-      position: relative;
+      position: sticky;
+      top: 0;
       z-index: 1000; /* Ensure the menu is on top */
     }
     nav {
@@ -78,11 +79,15 @@
       backdrop-filter: blur(10px); /* Frosted glass effect */
       border-radius: 10px;
       margin: 20px;
-      z-index: 999; /* Ensure the main content is below the menu */
     }
     footer {
+      background-color: rgba(255, 255, 255, 0.8); /* Frosted glass effect */
+      backdrop-filter: blur(10px); /* Frosted glass effect */
+      border: 1px solid #ccc;
+      padding: 10px 20px;
+      width: 100%;
+      box-sizing: border-box;
       text-align: center;
-      padding: 10px;
     }
   </style>
 </head>
