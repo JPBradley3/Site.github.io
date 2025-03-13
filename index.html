@@ -64,8 +64,10 @@ header {
     top: 0;
     z-index: 10;
     display: flex;
-    justify-content: space-between;
+    justify-content: center; /* Center header horizontally */
     align-items: center;
+    max-width: 1200px; /* Set max-width to match the infographic */
+    width: 100%; /* Ensure the width is 100% */
 }
 
 header .name {
@@ -252,7 +254,9 @@ footer {
     text-align: center;
     padding: 10px;
     z-index: 1;
-    width: 100%;
+    max-width: 1200px; /* Set max-width to match the infographic */
+    width: 100%; /* Ensure the width is 100% */
+    margin: 0 auto; /* Center footer horizontally */
 }
 
 footer a {
