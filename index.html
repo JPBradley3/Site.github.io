@@ -8,7 +8,7 @@
 <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 <style>
-body {
+    body {
     font-family: 'Roboto', sans-serif;
     color: #333;
     margin: 0;
@@ -17,8 +17,8 @@ body {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
-    justify-content: center; /* Center content vertically */
-    align-items: center; /* Center content horizontally */
+    justify-content: center; 
+    align-items: center;
 }
 
 body::before {
@@ -52,7 +52,7 @@ header, footer {
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
     border: 1px solid rgba(255, 255, 255, 0.3);
-    padding: 10px 20px;
+    padding: 2vw;
     width: 100%;
     box-sizing: border-box;
     z-index: 1;
@@ -65,12 +65,19 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    background-color: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 10px 20px; /* Reduced padding */
+    width: 100%;
+    box-sizing: border-box;
 }
 
 header .name {
     font-family: 'Arial Narrow', Arial, sans-serif;
     font-size: 2rem;
-    font-weight: 300; /* Light font weight */
+    font-weight: 300; 
     margin-right: 20px;
 }
 
@@ -173,7 +180,7 @@ nav {
     -webkit-backdrop-filter: blur(8px);
     border: 1px solid rgba(255, 255, 255, 0.3);
     border-radius: 10px;
-    padding: 20px;
+    padding: 2vw;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease;
 }
@@ -249,7 +256,7 @@ main {
 
 footer {
     text-align: center;
-    padding: 10px;
+    padding: 2vw;
     z-index: 1;
     width: 100%;
 }
@@ -263,6 +270,37 @@ footer a {
 footer a:hover {
     color: #2980b9;
 }
+
+@media (max-width: 768px) {
+    body {
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+    }
+
+    header, footer, .infographic-section {
+        width: 100%;
+        padding: 10px;
+    }
+
+    nav {
+        padding-right: 10px;
+    }
+
+    .dropdown-content {
+        min-width: 100px;
+    }
+
+    .infographic {
+        grid-template-columns: 1fr;
+    }
+
+    .dropbtn, .dropdown-content a {
+        font-size: 16px;
+        padding: 10px;
+    }
+}
+
 </style>
 </head>
 <body>
