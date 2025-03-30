@@ -1,4 +1,4 @@
-# JP Bradley Portfolio Website
+# Portfolio Website
 
 ## Overview
 This is a single-page portfolio website with a **modern, responsive design**, featuring **frosted glass effects** and **dynamic content sections** to showcase professional achievements and projects.
