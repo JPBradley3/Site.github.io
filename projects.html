@@ -17,9 +17,8 @@ body {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
-    justify-content: center; /* Center content vertically */
-    align-items: center; /* Center content horizontally */
 }
+
 
 body::before {
     content: '';
@@ -52,7 +51,7 @@ header, footer {
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
     border: 1px solid rgba(255, 255, 255, 0.3);
-    padding: 10px 20px;
+    padding: 10px max(20px, calc((100% - 1200px) / 2));
     width: 100%;
     box-sizing: border-box;
     z-index: 1;
@@ -205,6 +204,9 @@ main {
     align-items: center;
     flex-grow: 1;
     width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
 }
 
 footer {
@@ -260,6 +262,17 @@ footer a:hover {
 <div></div>
 <div></div>
 <p>This is a capstone project to explore JavaScript, Python, CSS, Django and other web development frameworks. This application displays the current weather and precipitation data to a user who must register to access the site.</p>
+<a href="https://github.com/JPBradley3/Weather-App" target="_blank">View on GitHub</a>
+</div>
+
+<div class="project-tile">
+<img src="MoreAvgWeather_Thumbnail.jpg" alt="Project 3 Thumbnail">
+<h3>MoreAvgWeather</h3>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<p>This is a side quest project I started while taking a break from coding lessons to focus on mathematics. I've been unskilling my programming through edX and my local library and found a probability course that will help me dissect more complicated kinds of equations that get used in algorithms. This project uses the known phase changes of water, a users altitude, and a collection of basic weather station readings from four different weather service providers to try to predict the probability of rain as precipitation in a given part of downtown Seattle WA.</p>
 <a href="https://github.com/JPBradley3/Weather-App" target="_blank">View on GitHub</a>
 </div>
 <!-- Add more project tiles as needed -->
