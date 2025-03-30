@@ -8,299 +8,309 @@
 <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 <style>
-    body {
-    font-family: 'Roboto', sans-serif;
-    color: #333;
-    margin: 0;
-    padding: 0;
-    position: relative;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center; 
-    align-items: center;
-}
-
-body::before {
-    content: '';
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: url('background.jpg') no-repeat center center fixed;
-    background-size: cover;
-    filter: grayscale(100%);
-    z-index: -2;
-}
-
-body::after {
-    content: '';
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(255, 255, 255, 0.3);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    z-index: -1;
-}
-
-header, footer {
-    background-color: rgba(255, 255, 255, 0.7);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    padding: 2vw;
-    width: 100%;
-    box-sizing: border-box;
-    z-index: 1;
-}
-
-header {
-    position: sticky;
-    top: 0;
-    z-index: 10;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: rgba(255, 255, 255, 0.7);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    padding: 10px 20px; /* Reduced padding */
-    width: 100%;
-    box-sizing: border-box;
-}
-
-header .name {
-    font-family: 'Arial Narrow', Arial, sans-serif;
-    font-size: 2rem;
-    font-weight: 300; 
-    margin-right: 20px;
-}
-
-nav {
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    padding-right: 20px;
-}
-
-.dropdown {
-    position: relative;
-    display: inline-block;
-    margin-left: auto;
-}
-
-.dropdown .dropbtn {
-    background-color: rgba(255, 255, 255, 0.8);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 20px;
-    font-weight: 700;
-    padding: 15px 20px;
-}
-
-.dropdown-content {
-    visibility: hidden;
-    opacity: 0;
-    position: absolute;
-    background-color: rgba(255, 255, 255, 0.9);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    border-radius: 5px;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1000;
-    right: 0;
-    transition: all 0.3s ease;
-}
-
-.dropdown::after {
-    content: '';
-    position: absolute;
-    top: 100%;
-    left: 0;
-    right: 0;
-    height: 20px;
-    background: transparent;
-}
-
-.dropdown-content::before {
-    content: '';
-    position: absolute;
-    top: -20px;
-    left: 0;
-    right: 0;
-    height: 20px;
-    background: transparent;
-}
-
-.dropdown-content a {
-    color: #333;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-}
-
-.dropdown-content a:hover {
-    background-color: rgba(241, 241, 241, 0.8);
-}
-
-.dropdown:hover .dropbtn {
-    border-radius: 5px 5px 0 0;
-}
-
-.dropdown:hover .dropdown-content {
-    visibility: visible;
-    opacity: 1;
-    top: calc(100% + 20px);
-}
-
-.infographic {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 20px;
-    padding: 20px;
-    max-width: 1200px;
-    margin: 0 auto;
-    position: relative;
-    width: 100%;
-}
-
-.infographic-section {
-    background-color: rgba(255, 255, 255, 0.7);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    border-radius: 10px;
-    padding: 2vw;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
-}
-
-.infographic-section:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-    background-color: rgba(255, 255, 255, 0.8);
-}
-
-.infographic-section h2 {
-    color: #2c3e50;
-    border-bottom: 2px solid #3498db;
-    padding-bottom: 10px;
-    margin-bottom: 15px;
-}
-
-.infographic-section h3 {
-    color: #34495e;
-    margin-top: 15px;
-}
-
-.infographic-section ul {
-    list-style-type: none;
-    padding-left: 0;
-}
-
-.infographic-section li {
-    margin-bottom: 8px;
-    padding-left: 20px;
-    position: relative;
-}
-
-.infographic-section li:before {
-    content: "•";
-    color: #3498db;
-    position: absolute;
-    left: 0;
-}
-
-.infographic-section a {
-    color: #3498db;
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
-
-.infographic-section a:hover {
-    color: #2980b9;
-}
-
-.link-button {
-    display: inline-block;
-    margin-left: 10px;
-    padding: 4px 8px;
-    background-color: #3498db;
-    color: white !important;
-    border-radius: 4px;
-    font-size: 0.9em;
-    text-align: center;
-}
-
-.link-button:hover {
-    background-color: #2980b9;
-}
-
-main {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-grow: 1;
-    width: 100%;
-}
-
-footer {
-    text-align: center;
-    padding: 2vw;
-    z-index: 1;
-    width: 100%;
-}
-
-footer a {
-    color: #3498db;
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
-
-footer a:hover {
-    color: #2980b9;
-}
-
-@media (max-width: 768px) {
-    body {
-        flex-direction: column;
-        align-items: flex-start;
-        justify-content: flex-start;
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
     }
 
-    header, footer, .infographic-section {
+    body {
+        font-family: 'Roboto', sans-serif;
+        color: #333;
+        margin: 0;
+        padding: 0;
+        position: relative;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
         width: 100%;
-        padding: 10px;
+        overflow-x: hidden;
+    }
+
+    body::before {
+        content: '';
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: url('background.jpg') no-repeat center center fixed;
+        background-size: cover;
+        filter: grayscale(100%);
+        z-index: -2;
+    }
+
+    body::after {
+        content: '';
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(255, 255, 255, 0.3);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        z-index: -1;
+    }
+
+    header, footer {
+        background-color: rgba(255, 255, 255, 0.7);
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        padding: 10px 20px;
+        width: 100vw;
+        margin: 0;
+        left: 0;
+        right: 0;
+        position: relative;
+    }
+
+    header {
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    header .name {
+        font-family: 'Arial Narrow', Arial, sans-serif;
+        font-size: 2rem;
+        font-weight: 300;
+        margin-right: 20px;
     }
 
     nav {
-        padding-right: 10px;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        padding-right: 20px;
+    }
+
+    .dropdown {
+        position: relative;
+        display: inline-block;
+        margin-left: auto;
+    }
+
+    .dropdown .dropbtn {
+        background-color: rgba(255, 255, 255, 0.8);
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 20px;
+        font-weight: 700;
+        padding: 15px 20px;
     }
 
     .dropdown-content {
-        min-width: 100px;
+        visibility: hidden;
+        opacity: 0;
+        position: absolute;
+        background-color: rgba(255, 255, 255, 0.9);
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        border-radius: 5px;
+        min-width: 160px;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        z-index: 1000;
+        right: 0;
+        transition: all 0.3s ease;
+    }
+
+    .dropdown::after {
+        content: '';
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        height: 20px;
+        background: transparent;
+    }
+
+    .dropdown-content::before {
+        content: '';
+        position: absolute;
+        top: -20px;
+        left: 0;
+        right: 0;
+        height: 20px;
+        background: transparent;
+    }
+
+    .dropdown-content a {
+        color: #333;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+    }
+
+    .dropdown-content a:hover {
+        background-color: rgba(241, 241, 241, 0.8);
+    }
+
+    .dropdown:hover .dropbtn {
+        border-radius: 5px 5px 0 0;
+    }
+
+    .dropdown:hover .dropdown-content {
+        visibility: visible;
+        opacity: 1;
+        top: calc(100% + 20px);
     }
 
     .infographic {
-        grid-template-columns: 1fr;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 20px;
+        padding: 20px;
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
     }
 
-    .dropbtn, .dropdown-content a {
-        font-size: 16px;
+    .infographic-section {
+        background-color: rgba(255, 255, 255, 0.7);
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        border-radius: 10px;
+        padding: 20px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease;
+    }
+
+    .infographic-section:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        background-color: rgba(255, 255, 255, 0.8);
+    }
+
+    .infographic-section h2 {
+        color: #2c3e50;
+        border-bottom: 2px solid #3498db;
+        padding-bottom: 10px;
+        margin-bottom: 15px;
+    }
+
+    .infographic-section h3 {
+        color: #34495e;
+        margin-top: 15px;
+    }
+
+    .infographic-section ul {
+        list-style-type: none;
+        padding-left: 0;
+    }
+
+    .infographic-section li {
+        margin-bottom: 8px;
+        padding-left: 20px;
+        position: relative;
+    }
+
+    .infographic-section li:before {
+        content: "•";
+        color: #3498db;
+        position: absolute;
+        left: 0;
+    }
+
+    .infographic-section a {
+        color: #3498db;
+        text-decoration: none;
+        transition: color 0.3s ease;
+    }
+
+    .infographic-section a:hover {
+        color: #2980b9;
+    }
+
+    .link-button {
+        display: inline-block;
+        margin-left: 10px;
+        padding: 4px 8px;
+        background-color: #3498db;
+        color: white !important;
+        border-radius: 4px;
+        font-size: 0.9em;
+        text-align: center;
+    }
+
+    .link-button:hover {
+        background-color: #2980b9;
+    }
+
+    main {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-grow: 1;
+        width: 100%;
+        padding: 0;
+        margin: 0;
+    }
+
+    .content {
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+    }
+
+    footer {
+        text-align: center;
         padding: 10px;
+        z-index: 1;
+        width: 100%;
     }
-}
 
+    footer a {
+        color: #3498db;
+        text-decoration: none;
+        transition: color 0.3s ease;
+    }
+
+    footer a:hover {
+        color: #2980b9;
+    }
+
+    @media (max-width: 768px) {
+        body {
+            flex-direction: column;
+        }
+
+        header, footer {
+            padding: 10px;
+        }
+
+        nav {
+            padding-right: 10px;
+        }
+
+        .dropdown-content {
+            min-width: 100px;
+        }
+
+        .infographic {
+            grid-template-columns: 1fr;
+            padding: 10px;
+        }
+
+        .content {
+            padding: 10px;
+        }
+
+        .dropbtn, .dropdown-content a {
+            font-size: 16px;
+            padding: 10px;
+        }
+    }
 </style>
 </head>
 <body>
