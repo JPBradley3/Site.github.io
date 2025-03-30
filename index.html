@@ -175,22 +175,22 @@
         align-items: stretch;
     }
 
-    .infographic-section {
-        background-color: rgba(255, 255, 255, 0.7);
-        backdrop-filter: blur(8px);
-        -webkit-backdrop-filter: blur(8px);
-        border: 1px solid rgba(255, 255, 255, 0.3);
-        border-radius: 10px;
-        padding: 20px;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        transition: transform 0.3s ease;
-        height: 100%;
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-start;
-        align-items: center;
-        text-align: center;
-    }
+.infographic-section {
+    background-color: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 10px;
+    padding: 30px; /* Increased padding */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start; /* Changed from center to flex-start */
+    text-align: left; /* Changed from center to left */
+}
 
     .infographic-section > *:not(h2) {
         margin-top: auto;
@@ -236,36 +236,56 @@
     }
 
     .infographic-section h2 {
-        color: #2c3e50;
-        border-bottom: 2px solid #3498db;
-        padding-bottom: 10px;
-        margin-bottom: 15px;
-        width: 100%;
-        text-align: center;
-    }
+    color: #2c3e50;
+    border-bottom: 2px solid #3498db;
+    padding-bottom: 10px;
+    margin-bottom: 20px; /* Increased margin */
+    width: 100%;
+    text-align: left; /* Changed from center to left */
+    font-size: 1.4em; /* Increased font size */
+}
 
-    .infographic-section h3 {
-        color: #34495e;
-        margin-top: 15px;
-        width: 100%;
-        text-align: center;
-    }
+.infographic-section h3 {
+    color: #34495e;
+    margin-top: 15px;
+    margin-bottom: 10px;
+    width: 100%;
+    text-align: left;
+    font-size: 1.2em;
+}
 
-    .infographic-section ul {
-        list-style-type: none;
-        padding-left: 0;
-        width: 100%;
-    }
+.infographic-section ul {
+    list-style-type: disc; /* Changed from none to disc */
+    padding-left: 20px; /* Added padding for bullets */
+    width: 100%;
+    margin-top: 10px;
+}
 
     .infographic-section li {
-        margin-bottom: 8px;
-        padding-left: 0;
-        position: relative;
-        text-align: center;
-    }
+    margin-bottom: 12px; /* Increased spacing between list items */
+    padding-left: 5px;
+    position: relative;
+    text-align: left;
+    line-height: 1.4; /* Added line height for better readability */
+}
 
     .infographic-section li:before {
-        display: none;
+    display: none; /* Keep this if you want to use regular bullets instead */
+}
+
+    /* Add the new styles here */
+    /* Style for the date/position information */
+    .experience-date {
+        color: #7f8c8d;
+        font-size: 0.9em;
+        margin-bottom: 5px;
+    }
+
+    /* Style for company/position titles */
+    .company-position {
+        font-weight: bold;
+        color: #2c3e50;
+        margin-bottom: 5px;
     }
 
     .infographic-section a {
@@ -278,16 +298,18 @@
         color: #2980b9;
     }
 
-    .link-button {
-        display: inline-block;
-        margin-left: 10px;
-        padding: 4px 8px;
-        background-color: #3498db;
-        color: white !important;
-        border-radius: 4px;
-        font-size: 0.9em;
-        text-align: center;
-    }
+    /* Update link button styling for better visibility */
+.link-button {
+    display: inline-block;
+    margin-left: 10px;
+    padding: 6px 12px; /* Increased padding */
+    background-color: #3498db;
+    color: white !important;
+    border-radius: 4px;
+    font-size: 0.9em;
+    text-align: center;
+    white-space: nowrap; /* Prevents button text from wrapping */
+}
 
     .link-button:hover {
         background-color: #2980b9;
@@ -418,8 +440,9 @@
 <div class="infographic-section">
 <h2>Experience</h2>
 <h3>CrowdGen</h3>
-<p>Quality Assurance Analyst</p>
-<p>July 2021 - Present</p>
+<div></div>
+<div class="company-position">Quality Assurance Analyst</div>
+<div class="experience-date">July 2021 - Present</div>
 <ul>
 <li>Examining data annotations for accuracy and adherence to guidelines (text, images, audio)</li>
 <li>Applying quality standards and metrics to identify errors</li>
@@ -431,8 +454,8 @@
 <div class="infographic-section">
 <h2>Experience</h2>
 <h3>Concord Technologies</h3>
-<p>Tier III Application Support</p>
-<p>February 2018 - December 2018</p>
+<div class="company-position">Tier III Application Support</div>
+<div class="experience-date">February 2018 - December 2018</div>
 <ul>
 <li>Diagnosing complex technical issues and analyzing system architecture</li>
 <li>Performing system health checks and implementing preventative measures</li>
@@ -445,8 +468,8 @@
 <div class="infographic-section">
 <h2>Experience</h2>
 <h3>Consolidated Communications</h3>
-<p>Network Technical Support</p>
-<p>August 2016 - August 2017</p>
+<div class="company-position">Network Technical Support</div>
+<div class="experience-date">August 2016 - August 2017</div>
 <ul>
 <li>Diagnosing internet connection issues (modem setup, router configuration, network speed)</li>
 <li>Assisting with account-related issues (billing inquiries, service upgrades, password resets)</li>
