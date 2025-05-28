@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>JP Bradley - Tools</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+<style>
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+    
+    body {
+        font-family: 'Roboto', sans-serif;
+        color: #333;
+        margin: 0;
+        padding: 0;
+        position: relative;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        overflow-x: hidden;
+    }
+    
+    body::before {
+        content: '';
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: url('background.jpg') no-repeat center center fixed;
+        background-size: cover;
+        filter: grayscale(100%);
+        z-index: -2;
+    }
+    
+    body::after {
+        content: '';
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(255, 255, 255, 0.3);
+        backdrop-filter: blur(6.5px);
+        -webkit-backdrop-filter: blur(10px);
+        z-index: -1;
+    }
+    
+    header, footer {
+        background-color: rgba(255, 255, 255, 0.7);
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        padding: 10px 20px;
+        width: 100vw;
+        margin: 0;
+        left: 0;
+        right: 0;
+        position: relative;
+    }
+    
+    header {
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    header .name {
+        font-family: 'Arial Narrow', Arial, sans-serif;
+        font-size: 2rem;
+        font-weight: 300;
+        margin-right: 20px;
+    }
+    
+    nav {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        padding-right: 20px;
+    }
+    
+    .dropdown {
+        position: relative;
+        display: inline-block;
+        margin-left: auto;
+    }
+    
+    .dropdown .dropbtn {
+        background-color: rgba(255, 255, 255, 0.8);
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 20px;
+        font-weight: 700;
+        padding: 15px 20px;
+    }
+    
+    .dropdown-content {
+        visibility: hidden;
+        opacity: 0;
+        position: absolute;
+        background-color: rgba(255, 255, 255, 0.9);
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        border-radius: 5px;
+        min-width: 160px;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        z-index: 1000;
+        right: 0;
+        transition: all 0.3s ease;
+    }
+    
+    .dropdown::after {
+        content: '';
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        height: 20px;
+        background: transparent;
+    }
+    
+    .dropdown-content::before {
+        content: '';
+        position: absolute;
+        top: -20px;
+        left: 0;
+        right: 0;
+        height: 20px;
+        background: transparent;
+    }
+    
+    .dropdown-content a {
+        color: #333;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+    }
+    
+    .dropdown-content a:hover {
+        background-color: rgba(241, 241, 241, 0.8);
+    }
+    
+    .dropdown:hover .dropbtn {
+        border-radius: 5px 5px 0 0;
+    }
+    
+    .dropdown:hover .dropdown-content {
+        visibility: visible;
+        opacity: 1;
+        top: calc(100% + 20px);
+    }
+    
+    .page-title {
+        text-align: center;
+        font-size: 2.5rem;
+        color: #2c3e50;
+        margin: 40px 0;
+        font-weight: 300;
+    }
+    
+    .tools-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 20px;
+        padding: 20px;
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+    
+    .tool-tile {
+        background-color: rgba(255, 255, 255, 0.7);
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        border-radius: 10px;
+        padding: 20px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease;
+    }
+    
+    .tool-tile:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        background-color: rgba(255, 255, 255, 0.8);
+    }
+    
+    .tool-tile img {
+        width: 100%;
+        height: 200px;
+        border-radius: 5px;
+        margin-bottom: 15px;
+        object-fit: cover;
+        object-position: center;
+    }
+    
+    .tool-tile h3 {
+        color: #2c3e50;
+        margin-top: 0;
+        margin-bottom: 10px;
+    }
+    
+    .tool-tile p {
+        color: #34495e;
+        margin-bottom: 15px;
+        line-height: 1.6;
+    }
+    
+    .tool-tile .tech-stack {
+        margin-bottom: 15px;
+    }
+    
+    .tool-tile .tech-stack span {
+        display: inline-block;
+        background-color: rgba(52, 152, 219, 0.2);
+        color: #2980b9;
+        padding: 4px 10px;
+        border-radius: 15px;
+        font-size: 0.85rem;
+        margin-right: 5px;
+        margin-bottom: 5px;
+    }
+    
+    .tool-tile .links {
+        display: flex;
+        gap: 10px;
+        margin-top: 15px;
+    }
+    
+    .tool-tile .links a {
+        color: #3498db;
+        text-decoration: none;
+        padding: 8px 15px;
+        border: 1px solid #3498db;
+        border-radius: 5px;
+        transition: all 0.3s ease;
+        font-size: 0.9rem;
+    }
+    
+    .tool-tile .links a:hover {
+        background-color: #3498db;
+        color: white;
+    }
+    
+    main {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        flex-grow: 1;
+        width: 100%;
+        padding: 0;
+        margin: 0;
+    }
+    
+    footer {
+        text-align: center;
+        padding: 10px;
+        z-index: 1;
+        width: 100%;
+    }
+    
+    footer a {
+        color: #3498db;
+        text-decoration: none;
+        transition: color 0.3s ease;
+    }
+    
+    footer a:hover {
+        color: #2980b9;
+    }
+    
+    @media screen and (max-width: 768px) {
+        header, footer {
+            padding: 10px;
+        }
+    
+        .tools-container {
+            padding: 10px;
+        }
+        
+        .page-title {
+            font-size: 2rem;
+        }
+    }
+</style>
+</head>
+<body>
+<header>
+    <div class="name">JP Bradley</div>
+    <nav>
+        <div class="dropdown">
+            <button class="dropbtn">Menu</button>
+            <div class="dropdown-content">
+                <a href="/">Home</a>
+                <a href="/projects">Projects</a>
+                <a href="/tools">Tools</a>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<main>
+    <h1 class="page-title">Developer Tools</h1>
+    
+    <div class="tools-container">
+        <div class="tool-tile">
+            <img src="CodeCampFriendly_Screenshot.png" alt="LaTeX_MD_Thumbnail">
+            <h3>LaTeX to Raw Markdown</h3>
+            <div class="tech-stack">
+                <span>Python</span>
+                <span>Format Conversion</span>
+                <span>Text Editing</span>
+            </div>
+            <p>This is a tool that helps in the creation and formatting of documentation through the conversion of LaTeX formatted files being translated and converted to raw markdown.</p>
+            <div class="links">
+                <a href="https://jpbradley3.github.io/TeX-to-MarkDown.github.io/" target="_blank">Link</a>
+                <a href="#" target="_blank">Documentation</a>
+            </div>
+        </div>
+        
+        
+        <!-- Add more tools as needed -->
+    </div>
+</main>
+
+<footer>
+    <p>&copy; JP Bradley, MIT License</p>
+</footer>
+</body>
+</html>
